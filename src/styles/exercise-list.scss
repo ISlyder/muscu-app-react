@@ -1,0 +1,16 @@
+@import "./style.scss";
+
+.card {
+    background: $bg-secondary-gradient;
+    color: $white;
+    width: 200px;
+}
+
+.exercises-container {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    width: 70%;
+}

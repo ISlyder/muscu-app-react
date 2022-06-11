@@ -1,0 +1,4 @@
+@import "./palette.scss";
+
+$bg-primary-gradient: radial-gradient(circle, $primary 0%,  $secondary 100%);
+$bg-secondary-gradient: radial-gradient(circle, $secondary 0%,  $primary 100%);

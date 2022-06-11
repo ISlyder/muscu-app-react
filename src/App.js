@@ -1,23 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import "./styles/App.scss";
+import SessionList from "./components/sessions/session-list";
+import { Route, Routes } from "react-router-dom";
+import ExerciceList from "./components/exercises/exercise-list";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="d-flex justify-content-center align-items-center">
+      <Routes>
+        <Route exact path="/" element={<SessionList />}></Route>
+        <Route path="/sessions" element={<SessionList />}></Route>
+        <Route path="/sessions/:id" element={<ExerciceList />}></Route>
+      </Routes>
     </div>
   );
 }
