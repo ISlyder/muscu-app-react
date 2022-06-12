@@ -1,12 +1,12 @@
 import SessionList from "../sessions/session-list";
-import "../../styles/home/home.scss"
+import "../../styles/home/home.scss";
 
 function Home() {
-    return ( 
+  return (
     <div>
-        <SessionList></SessionList>
+      <SessionList></SessionList>
     </div>
-    );
+  );
 }
 
 export default Home;

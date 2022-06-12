@@ -14,7 +14,6 @@ function App() {
         <Route path="/sessions/:id" element={<ExerciceList />}></Route>
       </Routes>
     </div>
-      
   );
 }
 
