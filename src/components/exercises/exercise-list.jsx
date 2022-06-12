@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "../../styles/exercises/exercise-list.scss";
 
-function ExerciceList(props) {
+function ExerciseList(props) {
   const API_URL = "http://localhost:8080/api";
 
   const params = useParams();
@@ -32,7 +32,7 @@ function ExerciceList(props) {
             <img
               src={require("../../assets/logo512.png")}
               alt="imageNotFound"
-            ></img>
+            />
           )}
         </Card>
       ))}
@@ -40,4 +40,4 @@ function ExerciceList(props) {
   );
 }
 
-export default ExerciceList;
+export default ExerciseList;
