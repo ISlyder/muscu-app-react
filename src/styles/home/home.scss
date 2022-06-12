@@ -1,1 +1,8 @@
-@import "../style.scss"
+@import "../style.scss";
+
+header {
+    border: 1px solid red;
+    color: $white;
+    margin-bottom: 5px;
+    height: 100px;
+}
