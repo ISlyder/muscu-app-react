@@ -20,7 +20,7 @@ function SessionList(props) {
 
   return (
     <div>
-      <div className="d-flex justify-content-end">
+      <div className="d-flex justify-content-end mr-2">
         <button type="button" className="add-btn">
           +
         </button>

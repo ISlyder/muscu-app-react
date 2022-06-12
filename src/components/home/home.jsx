@@ -3,7 +3,7 @@ import "../../styles/home/home.scss"
 
 function Home() {
     return ( 
-    <div style={{height: "100%"}}>
+    <div>
         <SessionList></SessionList>
     </div>
     );
