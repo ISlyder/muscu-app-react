@@ -2,3 +2,13 @@
 
 $bg-primary-gradient: radial-gradient(circle, $primary 0%,  $secondary 100%);
 $bg-secondary-gradient: radial-gradient(circle, $secondary 0%,  $primary 100%);
+
+.bg-primary {
+    background-color: $primary;
+    color: $white;
+}
+
+.bg-none {
+    background: rgb(0, 0, 0, 0);
+    color: $white;
+}

@@ -11,7 +11,7 @@ function SessionCard(props) {
 
   return (
     <div onClick={() => goToExercises(props.session.id)}>
-      <Card style={{ width: "400px" }}>
+      <Card style={{ width: "400px" }} className='bg-primary'>
         <Card.Body>
           <Card.Title>{props.session.name}</Card.Title>
         </Card.Body>

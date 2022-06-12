@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SessionCard from "./session-card";
-import "../../styles/session-list.scss";
+import "../../styles/sessions/session-list.scss";
 
 function SessionList(props) {
   const API_URL = "http://localhost:8080/api";

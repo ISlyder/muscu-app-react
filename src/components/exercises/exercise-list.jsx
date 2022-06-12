@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import '../../styles/exercise-list.scss';
+import '../../styles/exercises/exercise-list.scss';
 
 function ExerciceList(props) {
   const API_URL = "http://localhost:8080/api";
@@ -24,7 +24,7 @@ function ExerciceList(props) {
   return (
     <div className="exercises-container">
       {exerciseList.map((exercise) => (
-        <Card key={exercise.id} className="card">
+        <Card key={exercise.id} className="card bg-none">
           <Card.Title >{exercise.name}</Card.Title>
           {exercise.image ? 
           <Card.Img src={exercise.image} alt={exercise.name + 'image'}/> : 
