@@ -3,14 +3,27 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Row, Modal, Button, Form } from "react-bootstrap";
 import SessionCard from "./session-card";
 import "../../styles/sessions/session-list.scss";
+import { FaPlus } from "react-icons/fa";
+import { API_URL } from "../../utils/constants";
+import NewSessionModal from "../shared/new-session-modal";
 
 function SessionList(props) {
-  const API_URL = "http://localhost:8080/api";
-
   const [sessionList, setSessionList] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [sessionName, setSessionName] = useState("");
   const [isValidForm, setIsValidForm] = useState(false);
+
+  const handleShow = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
+  const handleNameChange = (event) => {
+    const value = event.target.value;
+    setSessionName(value);
+    if (value) {
+      setIsValidForm(true);
+    } else {
+      setIsValidForm(false);
+    }
+  };
 
   useEffect(() => {
     getAllSessions();
@@ -22,18 +35,6 @@ function SessionList(props) {
     });
   };
 
-  const handleClose = () => setShowModal(false);
-  const handleShow = () => setShowModal(true);
-  const handleNameChange = (event) => {
-    const value = event.target.value;
-    setSessionName(value);
-    if (value) {
-      setIsValidForm(true);
-    } else {
-      setIsValidForm(false);
-    }
-  };
-
   const addNewSession = (newSession) => {
     if (newSession && newSession.name) {
       axios
@@ -42,17 +43,25 @@ function SessionList(props) {
         .then(() => handleClose())
         .then(() => setSessionName(""))
         .catch((err) =>
+          /* TODO: display an error message in the modal  */
           console.error("Problem while trying to add a new session : " + err)
         );
     }
   };
 
+  const onDelete = (sessionId) => {
+    const newSessionList = sessionList.filter(
+      (session) => session.id !== sessionId
+    );
+    setSessionList(newSessionList);
+  };
+
   return (
     <div>
       <div className="d-flex justify-content-end me-3">
-        <button type="button" className="add-btn" onClick={handleShow}>
-          +
-        </button>
+        <Button type="button" className="add-btn">
+          <FaPlus onClick={handleShow} />
+        </Button>
       </div>
       <Modal
         centered={true}
@@ -92,7 +101,10 @@ function SessionList(props) {
         <Row className="justify-content-center">
           {sessionList.map((session) => (
             <Col key={session.id} className="mt-4">
-              <SessionCard session={session} />
+              <SessionCard
+                session={session}
+                onDelete={(sessionId) => onDelete}
+              />
             </Col>
           ))}
         </Row>
